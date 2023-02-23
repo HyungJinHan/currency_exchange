@@ -2,7 +2,9 @@
 
 `exchangerate.host API`를 활용하여 만들어진 간단한 환전소 사이트입니다.
 
-### <b>사이트 링크 : [Currency Exchange](https://currency-exchange-chi.vercel.app/)</b>
+<br>
+
+### <b>사이트 링크 : [Currency Exchange](https://currency-exchange-chi.vercel.app/)</b> (`API`를 통한 검색 속도가 느림 주의)
 
 <br>
 
