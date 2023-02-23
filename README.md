@@ -47,22 +47,22 @@
 | 메인 화면                                   |
 | ------------------------------------------- |
 | 기본값으로 미국 달러(1$)를 한국 원화로 설정 |
-| <img src="./src/static/images/main.png">    |
+| <img src="./src/static/images/main.PNG">    |
 
 | 입력 에러 설정                                                          |
 | ----------------------------------------------------------------------- |
 | 0 미만의 음수의 값을 입력할 시, 에러 메세지 출력 및 입력값을 1로 초기화 |
 | `react-hot-toast` 라이브러리 사용                                       |
-| <img src="./src/static/images/error.png">                               |
+| <img src="./src/static/images/error.PNG">                               |
 
 | 국가 선택                                                   |
 | ----------------------------------------------------------- |
 | 입력값과 결과값의 국가 선택 후, 입력값에 원하는 금액을 입력 |
-| <img src="./src/static/images/select.png">                  |
+| <img src="./src/static/images/select.PNG">                  |
 
 | `BitCoin` 환전 결과                              |
 | ------------------------------------------------ |
 | 별도의 버튼 없이 실시간으로 환전률과 결과값 출력 |
-| <img src="./src/static/images/btc.png">          |
+| <img src="./src/static/images/btc.PNG">          |
 
 </div>
