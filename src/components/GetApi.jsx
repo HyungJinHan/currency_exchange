@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
+import { toast, Toaster } from "react-hot-toast";
+import CoinImage from "../static/images/faviconBlack.png";
 
 const GetApi = () => {
   const [result, setResult] = useState({
@@ -14,6 +16,7 @@ const GetApi = () => {
 
   const toRef = useRef();
   const fromRef = useRef();
+  const amountRef = useRef();
 
   useEffect(() => {
     var currencyURL = `https://api.exchangerate.host/convert?from=${convertFrom}&to=${convertTo}&amount=${amount}`;
@@ -51,16 +54,20 @@ const GetApi = () => {
   }, []);
 
   return (
-    <div className="selection:bg-sky-200 justify-center">
-      <div className="mx-5 mt-5 text-xl">
+    <div className="flex items-center justify-center h-screen">
+      <div>
+        <Toaster />
+      </div>
+
+      <div className="selection:bg-sky-200 text-xl">
         <div className="mb-10">
-          <p className="relative text-left font-bold text-gray-400">
+          <p className="text-left font-bold text-2xl text-gray-400">
             {amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
             {convertFrom}
             &nbsp;=
           </p>
 
-          <p className="text-left text-4xl font-bold my-5 hover:text-sky-500 transition-all duration-300 ease-in-out">
+          <p className="text-left text-4xl font-bold mt-2 mb-5 hover:text-sky-500 transition-all duration-300 ease-in-out">
             {(Math.round(result.result * 100) / 100)
               .toString()
               .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
@@ -68,17 +75,30 @@ const GetApi = () => {
           </p>
 
           <p className="text-left font-bold text-gray-400 animate-pulse">
-            {result.date} 기준
+            <span>{result.date} 기준 환율 </span>
+
+            <span className="underline">
+              ({convertFrom} -&gt; {convertTo} :&nbsp;
+              {(Math.round(result.rate * 100) / 100)
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+              )
+            </span>
           </p>
         </div>
 
         <div className="mb-8">
-          <p className="font-bold pb-3">입력값</p>
+          <p className="font-bold pb-5 text-2xl">입력값</p>
 
           <input
+            ref={amountRef}
             type="number"
             defaultValue="1"
             onChange={(e) => {
+              if (e.target.value < 0) {
+                toast.error("0보다 작은 값은 입력할 수 없습니다.");
+                amountRef.current.value = 1;
+              }
               setAmount(e.target.value);
             }}
             className="border-2 rounded-md inputClass"
@@ -97,8 +117,16 @@ const GetApi = () => {
           </select>
         </div>
 
+        <div className="text-center">
+          <img
+            className="w-24 mb-8 mt-5 inline-flex animate-pulse"
+            src={CoinImage}
+            alt="coinImage"
+          />
+        </div>
+
         <div>
-          <p className="font-bold pb-3">결과값</p>
+          <p className="font-bold pb-5 text-2xl">결과값</p>
 
           <input
             type="text"
@@ -108,6 +136,7 @@ const GetApi = () => {
             readOnly
             className="border-2 rounded-md cursor-not-allowed inputClass"
           />
+
           <select
             ref={toRef}
             defaultValue="KRW"
