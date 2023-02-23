@@ -4,7 +4,9 @@
 
 <br>
 
-### <b>사이트 링크 : [Currency Exchange](https://currency-exchange-chi.vercel.app/)</b> (`API`를 통한 검색 속도가 느림 주의)
+### <b>사이트 링크 : [Currency Exchange](https://currency-exchange-chi.vercel.app/)</b>
+
+- ⚠️ `API`를 통한 검색 속도 느림 주의
 
 <br>
 
