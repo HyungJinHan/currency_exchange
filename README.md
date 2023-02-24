@@ -6,7 +6,7 @@
 
 ### <b>사이트 링크 : [Currency Exchange](https://currency-exchange-chi.vercel.app/)</b>
 
-- ⚠️ `API`를 통한 검색 속도 느림 주의
+- ⚠️ `API`를 통한 검색인만큼 배포된 사이트에서의 환전 속도가 살짝 느릴 수도 있습니다. 😓
 
 <br>
 
